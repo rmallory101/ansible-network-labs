@@ -11,18 +11,18 @@
   - name: create tunnel interface to R0
     ios_config:
       lines:
-       - 'ip address 172.16.{{ studentid }}.10 255.255.255.0'
+       - 'ip address 172.16.108.10 255.255.255.0'
        - 'tunnel source GigabitEthernet2'
        - 'tunnel destination {{ r0g2ip }}'
        - 'description Tunnel to R0'
-      parents: interface Tunnel {{ studentid }}
+      parents: interface Tunnel 108
       
   - name: Configure OSPF
     ios_config:
       lines:
-        - 'router-id 172.17.{{ studentid }}.1'
+        - 'router-id 172.17.108.1'
         - 'passive-interface default'
         - 'network 0.0.0.0 0.0.0.0 area 0'
-        - 'no passive-interface tunnel{{ studentid }}'
+        - 'no passive-interface tunnel 108'
       parents: router ospf 1
 ...
