@@ -25,7 +25,7 @@
       - name: Configure L0
         ios_config:
           lines:
-            - ip address 172.17.{{ studentid }}.1 255.255.255.0
+            - ip address 172.17.108.1 255.255.255.0
           parents: interface Loopback0
     when: ' studentrouter in inventory_hostname '
 ...
